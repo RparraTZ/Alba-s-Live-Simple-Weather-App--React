@@ -1,0 +1,14 @@
+.Weather {
+  max-width: 600px;
+  margin: 20px auto;
+  border: 2px solid rgb(168, 200, 226);
+  padding: 25px;
+  border-radius: 10px;
+}
+.city-name {
+  text-align: start;
+}
+li {
+  list-style-type: none;
+  text-align: start;
+}
