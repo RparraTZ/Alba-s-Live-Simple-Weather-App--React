@@ -4,8 +4,26 @@ import Weather from "./Weather";
 
 export default function App() {
   return (
-    <div>
-      <h1>Alba's Live Simple Weather App- React</h1>
+    <div className="App">
+      <h1>Alba's Live Simple Weather App</h1>
+      <form className="mt-4 mb-3">
+        <div className="container">
+          <div className="row g-1">
+            <div className="col-9">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter City..."
+              />
+            </div>
+            <div className="col-3">
+              <button type="submit" className="btn btn-secondary w-100">
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
       <Weather />
       <footer>
         <p>

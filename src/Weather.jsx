@@ -4,10 +4,6 @@ import "./Weather.css";
 export default function Weather() {
   return (
     <div className="Weather">
-      <form>
-        <input type="text" placeholder="Enter City..." />
-        <input type="submit" value="Search" />
-      </form>
       <h4 className="city-name">Los Angeles</h4>
       <div className="container weather-display">
         <div className="row d-flex justify-content-evenly">
