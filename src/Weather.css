@@ -1,13 +1,41 @@
 .Weather {
-  max-width: 600px;
+  background: linear-gradient(
+    178deg,
+    rgba(255, 220, 172, 0.97) 50%,
+    rgb(249, 231, 214) 100%
+  );
+  max-width: 450px;
   margin: 20px auto;
-  border: 2px solid rgb(168, 200, 226);
   padding: 25px;
-  border-radius: 10px;
+  border-radius: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.city-name {
-  text-align: start;
+.weather-icon {
+  margin-top: 25px;
+  width: 150px;
 }
+.temp-f {
+  font-size: 40px;
+}
+ul {
+  padding: 0;
+}
+
 li {
   list-style-type: none;
+}
+.condition-display {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 2px solid rgb(221, 221, 221);
+  padding-top: 15px;
+  font-size: 18px;
+}
+@media (max-width: 600px) {
+  .weather-icon {
+    width: 90px;
+  }
+  .quick-info {
+    text-align: center;
+  }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Weather from "./Weather";
+import Footer from "./Footer";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
                 type="text"
                 className="form-control"
                 placeholder="Enter City..."
+                autoFocus="on"
               />
             </div>
             <div className="col-3">
@@ -25,34 +27,7 @@ export default function App() {
         </div>
       </form>
       <Weather />
-      <footer>
-        <p>
-          This App was created by{" "}
-          <a
-            href="https://github.com/RparraTZ?tab=repositories"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Rosalba Parra.{" "}
-          </a>
-          It's hosted on{" "}
-          <a
-            href="https://elegant-horse-fb314b.netlify.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Netlify{" "}
-          </a>
-          and is{" "}
-          <a
-            href="https://github.com/RparraTZ/Alba-s-Live-Simple-Weather-App--React"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            open-sourced on Github.
-          </a>
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }
