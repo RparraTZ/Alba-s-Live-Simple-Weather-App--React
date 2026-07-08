@@ -1,55 +1,59 @@
 import React from "react";
 import "./Weather.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUmbrella,
-  faWind,
-  faDroplet,
-} from "@fortawesome/free-solid-svg-icons";
+import { faWind, faDroplet } from "@fortawesome/free-solid-svg-icons";
+import { formatWeatherData } from "./weatherHelpers";
 
-export default function Weather() {
+export default function Weather(props) {
+  if (!props.data) {
+    return <p>Loading weather data...</p>;
+  }
+
+  // This creates your 'weather' object package!
+  const weather = formatWeatherData(props.data);
+
   return (
-    <div className="Weather">
-      <h3 className="text-center fw-bold">Los Angeles</h3>
-      <div className="fs-6">Monday 11:33 PM</div>
-      <div className="container weather-display m-3 ">
+    // Dynamic background class injected perfectly!
+    <div className={`Weather ${weather.themeClass}`}>
+      {/* Every variable below must read from your 'weather' object */}
+      <h3 className="text-center fw-bold">{weather.cityName}</h3>
+      <div className="fs-6 text-center">{weather.displayDate}</div>
+      <div className="current-date text-center">{weather.displayTime}</div>
+
+      <div className="container weather-display m-3">
         <div className="row">
-          <div className="col-6">
+          <div className="col-6 text-center">
             <img
               className="weather-icon"
-              src="https://www.gstatic.com/weather/conditions/v1/svg/sunny_light.svg"
-              alt="sunny"
+              src={weather.weatherIcon}
+              alt={weather.description}
             />
           </div>
           <div className="col-6 mt-4 quick-info d-flex justify-content-md-center">
             <ul>
-              <li className="fw-bold temp-f">85°F</li>
-              <li className="fs-2">27°C</li>
-              <li className="description">Partly Cloudy</li>
+              <li className="fw-bold temp-f">{weather.temperature}°F</li>
+              <li className="fs-3 text-muted">{weather.celTemp}°C</li>
+              <li className="description text-capitalize">
+                {weather.description}
+              </li>
             </ul>
           </div>
         </div>
       </div>
-      <div className="condition-display mt-4">
-        <div className="boxes">
-          <FontAwesomeIcon icon={faUmbrella} />
-          <div>Precipitation </div>
-          <div>
-            <strong>90%</strong>
-          </div>
-        </div>
-        <div className="boxes">
+
+      <div className="condition-display mt-4 d-flex justify-content-around">
+        <div className="boxes text-center">
           <FontAwesomeIcon icon={faDroplet} />
-          <div>Humidity </div>
+          <div>Humidity</div>
           <div>
-            <strong>90%</strong>
+            <strong>{weather.humidity}%</strong>
           </div>
         </div>
-        <div className="boxes">
+        <div className="boxes text-center">
           <FontAwesomeIcon icon={faWind} />
           <div>Wind</div>
           <div>
-            <strong>10 mph</strong>
+            <strong>{weather.windSpeed} mph</strong>
           </div>
         </div>
       </div>

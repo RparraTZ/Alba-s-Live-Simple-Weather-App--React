@@ -7,6 +7,7 @@ import axios from "axios";
 export default function App() {
   const [city, setCity] = useState("Ontario");
   const [searchCity, setSearchCity] = useState("Ontario");
+  const [weatherData, setWeatherData] = useState(null);
   function handleSubmit(event) {
     event.preventDefault();
     setSearchCity(city);
@@ -21,6 +22,7 @@ export default function App() {
       try {
         const response = await axios.get(apiUrl);
         console.log(response.data);
+        setWeatherData(response.data);
       } catch (error) {
         console.error("Error fecthing data", error);
       }
@@ -50,7 +52,7 @@ export default function App() {
           </div>
         </div>
       </form>
-      <Weather />
+      <Weather data={weatherData} />
       <Footer />
     </div>
   );
