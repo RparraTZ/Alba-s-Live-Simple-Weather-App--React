@@ -1,26 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Weather.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWind, faDroplet } from "@fortawesome/free-solid-svg-icons";
 import { formatWeatherData } from "./weatherHelpers";
 
 export default function Weather(props) {
+  const [unit, setUnit] = useState("fahrenheit");
   if (!props.data) {
     return <p>Loading weather data...</p>;
   }
 
-  // This creates your 'weather' object package!
   const weather = formatWeatherData(props.data);
+  function showCelsius(event) {
+    event.preventDefault();
+    setUnit("celsius");
+  }
+
+  function showFahrenheit(event) {
+    event.preventDefault();
+    setUnit("fahrenheit");
+  }
 
   return (
-    // Dynamic background class injected perfectly!
     <div className={`Weather ${weather.themeClass}`}>
-      {/* Every variable below must read from your 'weather' object */}
       <h3 className="text-center fw-bold">{weather.cityName}</h3>
       <div className="fs-6 text-center">{weather.displayDate}</div>
       <div className="current-date text-center">{weather.displayTime}</div>
 
-      <div className="container weather-display m-3">
+      <div className="container weather-display m-1">
         <div className="row">
           <div className="col-6 text-center">
             <img
@@ -31,8 +38,35 @@ export default function Weather(props) {
           </div>
           <div className="col-6 mt-4 quick-info d-flex justify-content-md-center">
             <ul>
-              <li className="fw-bold temp-f">{weather.temperature}°F</li>
-              <li className="fs-3 text-muted">{weather.celTemp}°C</li>
+              <div className="temp-and-unit mt-3">
+                {unit === "fahrenheit" ? (
+                  <>
+                    <div className="fw-bold temp-f">{weather.temperature}</div>
+                    <div className="mt-3">
+                      <span className="temp-unit active-unit">°F | </span>
+
+                      <a className="temp-unit" href="/" onClick={showCelsius}>
+                        °C
+                      </a>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="fw-bold temp-f">{weather.celTemp}</div>
+                    <div className="mt-3">
+                      <a
+                        className="temp-unit"
+                        href="/"
+                        onClick={showFahrenheit}
+                      >
+                        °F
+                      </a>
+
+                      <span className="temp-unit active-unit"> | °C</span>
+                    </div>
+                  </>
+                )}
+              </div>
               <li className="description text-capitalize">
                 {weather.description}
               </li>

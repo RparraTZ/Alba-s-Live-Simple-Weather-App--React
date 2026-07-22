@@ -15,7 +15,15 @@
   width: 150px;
 }
 .temp-f {
-  font-size: 40px;
+  font-size: 50px;
+}
+
+.temp-and-unit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.temp-unit {
+  font-size: 20px;
 }
 ul {
   padding: 0;

@@ -31,7 +31,6 @@ export default function App() {
   }, [searchCity]);
   return (
     <div className="App">
-      <h1>Live Simple Weather App</h1>
       <form className="mt-4 mb-3" onSubmit={handleSubmit}>
         <div className="container">
           <div className="row g-1">
