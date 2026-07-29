@@ -6,11 +6,3 @@ body,
   min-height: 100vh;
   width: 100%;
 }
-body {
-  background: #c7f2ff;
-  background: linear-gradient(
-    178deg,
-    rgba(199, 242, 255, 1) 44%,
-    rgba(245, 208, 122, 1) 100%
-  );
-}

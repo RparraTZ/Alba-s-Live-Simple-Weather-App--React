@@ -1,14 +1,60 @@
-.Weather {
+body:has(.Weather.day-mode) {
+  background: #c7f2ff;
   background: linear-gradient(
     178deg,
-    rgba(255, 220, 172, 0.97) 50%,
-    rgb(249, 231, 214) 100%
+    rgba(199, 242, 255, 1) 44%,
+    rgba(245, 208, 122, 1) 100%
   );
+  min-height: 100vh;
+}
+
+body:has(.Weather.night-mode) {
+  background: #1e1a31;
+  min-height: 100vh;
+}
+.Weather {
   max-width: 450px;
   margin: 20px auto;
   padding: 25px;
   border-radius: 20px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition:
+    background 0.5s ease-in-out,
+    color 0.5s ease-in-out;
+}
+.Weather.day-mode {
+  background: linear-gradient(
+    178deg,
+    rgba(255, 220, 172, 0.97) 50%,
+    rgb(249, 231, 214) 100%
+  );
+  color: #2b2b2b;
+}
+
+.Weather.day-mode .condition-display {
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.Weather.day-mode a.temp-unit {
+  color: #2b2b2b;
+  text-decoration: underline;
+}
+.Weather.night-mode {
+  background: linear-gradient(
+    178deg,
+    rgba(23, 32, 54, 0.97) 50%,
+    rgb(41, 53, 82) 100%
+  );
+  color: #f1f5f9;
+}
+
+.Weather.night-mode .condition-display {
+  border-top: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.Weather.night-mode a.temp-unit {
+  color: #93c5fd;
+  text-decoration: underline;
 }
 .weather-icon {
   margin-top: 25px;

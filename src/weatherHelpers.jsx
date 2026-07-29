@@ -1,5 +1,4 @@
 export function formatWeatherData(apiData) {
-  // 1. SheCodes API passes data straight into apiData (no extra .data needed here)
   const dateObject = new Date(apiData.time * 1000);
 
   const displayTime = new Intl.DateTimeFormat("en-US", {
@@ -15,14 +14,12 @@ export function formatWeatherData(apiData) {
     year: "numeric",
   }).format(dateObject);
 
-  // 2. Fixed: Changed 'props.data' to 'apiData'
   const temperature = Math.round(apiData.temperature.current);
   const celTemp = Math.round((temperature - 32) / 1.8);
 
   const hour = dateObject.getHours();
   const themeClass = hour < 6 || hour >= 18 ? "night-mode" : "day-mode";
 
-  // 3. Cleanly mapping the API structure to matching keys
   return {
     displayTime,
     displayDate,
