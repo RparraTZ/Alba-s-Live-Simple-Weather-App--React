@@ -1,3 +1,19 @@
-.temp-low {
-  opacity: 0.5;
+/* Default / Night Mode Styles */
+.night-mode .day-name,
+.night-mode .temp-high {
+  color: #ffffff;
+}
+
+.night-mode .temp-low {
+  color: #a0a0a0;
+}
+
+/* Day Mode Styles */
+.day-mode .day-name,
+.day-mode .temp-high {
+  color: #212529; /* Dark text for bright backgrounds */
+}
+
+.day-mode .temp-low {
+  color: #6c757d; /* Muted dark grey */
 }
