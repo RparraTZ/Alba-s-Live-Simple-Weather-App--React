@@ -1,0 +1,6 @@
+.day-name.temp-high.temp-low {
+  font-size: 45px;
+}
+.temp-low {
+  opacity: 0.75;
+}

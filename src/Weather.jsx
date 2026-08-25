@@ -3,6 +3,7 @@ import "./Weather.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWind, faDroplet } from "@fortawesome/free-solid-svg-icons";
 import { formatWeatherData } from "./weatherHelpers";
+import ForecastData from "./ForecastData";
 
 export default function Weather(props) {
   const [unit, setUnit] = useState("fahrenheit");
@@ -91,6 +92,7 @@ export default function Weather(props) {
           </div>
         </div>
       </div>
+      <ForecastData city={weather.cityName} />
     </div>
   );
 }

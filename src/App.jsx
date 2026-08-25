@@ -21,7 +21,6 @@ export default function App() {
       const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchCity}&key=${apiKey}&units=imperial`;
       try {
         const response = await axios.get(apiUrl);
-        console.log(response.data);
         setWeatherData(response.data);
       } catch (error) {
         console.error("Error fecthing data", error);
